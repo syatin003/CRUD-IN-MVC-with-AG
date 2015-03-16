@@ -5,10 +5,8 @@
 
 <div ng-controller="myCntrl">
 
-    <span ng-click="AddEmployeeDiv()" class="btnGreen">
-        Add Employee
-    </span>
-
+    <a ng-click="AddEmployeeDiv()" class="btnGreen">Add Employee</a>
+    
     <div class="divList">
         <p class="divHead">Employee List</p>
         <table cellpadding="12">
@@ -33,45 +31,63 @@
                     {{employee.Age}}
                 </td>
                 <td>
-                    <span ng-click="EditEmployee(employee)" class="btnGreen">Edit</span>
-                    <span ng-click="DeleteEmployee(employee)" class="btnRed">Delete</span>
+                     <a ng-click="EditEmployee(employee)" class="btnGreen">Edit</a>
+                    <a ng-click="DeleteEmployee(employee)" class="btnGreen">Delete</a>
                 </td>
             </tr>
         </table>
     </div>
+        <div ng-show="divEmployee">
+            <form name="frmEmployee" novalidate>
+                <p class="divHead">{{Action}} Employee</p>
+                <table>
+                    <tr>
+                        <td><b>Id</b></td>
+                        <td>
+                            <input type="text" disabled="" ng-model="employeeId" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Name</b></td>
+                        <td>
+                            <input type="text" ng-model="employeeName" name="Name" ng-maxlength=15 required ng-focus />
+                            <span style="color:red" ng-show="frmEmployee.Name.$dirty && frmEmployee.Name.$invalid">
+                                <span ng-show="frmEmployee.Name.$error.required">Username is required.</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Email</b></td>
+                        <td>
+                            <input type="email" ng-model="employeeEmail" name="email" required />
+                            <span style="color:red" ng-show="frmEmployee.email.$dirty && frmEmployee.email.$invalid">
+                                <span ng-show="frmEmployee.email.$error.required">Email is required.</span>
+                                <span ng-show="frmEmployee.email.$error.email">Invalid email address.</span>@*ng-pattern="[a-zA-Z]"*@
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Age</b></td>
+                        <td>
+                            <input type="number" ng-model="employeeAge" name="age" ng-minlength=2 ng-maxlength="2" ng- required />
 
-    <div ng-show="divEmployee">
-        <p class="divHead">{{Action}} Employee</p>
-        <table>
-            <tr>
-                <td><b>Id</b></td>
-                <td>
-                    <input type="text" disabled="" ng-model="employeeId" />
-                </td>
-            </tr>
-            <tr>
-                <td><b>Name</b></td>
-                <td>
-                    <input type="text" ng-model="employeeName" />
-                </td>
-            </tr>
-            <tr>
-                <td><b>Email</b></td>
-                <td>
-                    <input type="text" ng-model="employeeEmail" />
-                </td>
-            </tr>
-            <tr>
-                <td><b>Age</b></td>
-                <td>
-                    <input type="text" ng-model="employeeAge" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="button" class="btnGreen" value="Save" ng-click="AddUpdateEmployee()" />
-                </td>
-            </tr>
-        </table>
-    </div>
+                            <span style="color:red" ng-show="frmEmployee.age.$dirty && frmEmployee.age.$invalid">
+                                <span ng-show="frmEmployee.age.$error.required">Age is required.</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                           @* <input type="button" class="btnGreen" value="Save" ng-click="AddUpdateEmployee()" />*@
+                            <button ng-disabled="frmEmployee.Name.$dirty && frmEmployee.Name.$invalid ||
+			  frmEmployee.email.$dirty && frmEmployee.email.$invalid ||
+			  frmEmployee.age.$dirty && frmEmployee.age.$invalid"
+                                    ng-click="AddUpdateEmployee()">
+                                Save
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+</div>
 </div>
