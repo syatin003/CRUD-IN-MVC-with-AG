@@ -64,16 +64,16 @@ namespace CRUD_in_MVC_Using_AngularJs.Controllers
             }
         }
 
-        public string DeleteEmployee(String empid)
+        public string DeleteEmployee(int employeeId)
         {
-            if (!String.IsNullOrEmpty(empid))
-            {
+          //  if (!Convert.ToInt32(String.IsNullOrEmpty(employeeId)))
+          //  {
                 try
                 {
-                    int Id = Convert.ToInt32(empid);
+                    int Id = Convert.ToInt32(employeeId);
                     using (EmployeeContext db = new EmployeeContext())
                     {
-                        var getEmployee = db.employee.Find(empid);
+                        var getEmployee = db.employee.Find(employeeId);
                         db.employee.Remove(getEmployee);
                         db.SaveChanges();
                         return "Employee Deleted";
@@ -83,11 +83,11 @@ namespace CRUD_in_MVC_Using_AngularJs.Controllers
                 {
                     return "Employee Not Found";
                 }
-            }
-            else
-            {
-                return "Invalid Request";        
-            }
+          //  }
+            //else
+          //  {
+            //    return "Invalid Request";        
+           // }
 
             
         

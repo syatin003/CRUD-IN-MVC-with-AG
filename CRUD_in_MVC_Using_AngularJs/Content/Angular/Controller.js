@@ -11,7 +11,7 @@
         });
     }
 
-    $scope.editEmployee = function (employee) {
+    $scope.EditEmployee = function (employee) {
       
         var getData = angularService.getEmployee(employee.Id);
         getData.then(function (emp) {
@@ -63,9 +63,11 @@
         $scope.divEmployee = true;
     }
 
-    $scope.deleteEmployee = function (employee) {
+    $scope.DeleteEmployee = function (employee) {
         var getData = angularService.DeleteEmp(employee.Id);
+      
         getData.then(function (msg) {
+            $scope.employeeId = employee.Id;
             GetAllEmployee();
             alert('Employee Deleted');
         }, function () {
