@@ -1,34 +1,40 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Index";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
-</hgroup>
-
-<article>
-    <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
-    </p>
-</article>
-
-<aside>
-    <h3>Aside Title</h3>
-    <p>
-        Use this area to provide additional information.
-    </p>
-    <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-    </ul>
-</aside>
+<h2>Index</h2>
+<div ng-app="myApp">
+    <div ng-controller="myCntrl1">
+        <table>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select ng-model="Country" ng-options="c.CountryName for c in countryList track by c.CountryId" ng-change="GetStatesList()">
+                        <option value="">Select Country</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>
+                    <select ng-model="State" ng-options="s.StateName for s in stateList track by s.StateId" ng-change="GetCitiesList()">
+                        <option value="">Select State</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>
+                    <select ng-model="City" ng-options="s.CityName for ci in cityList track by ci.CityId">
+                        <option value="">Select City</option>
+                    </select>
+                </td>
+               
+            </tr>
+          
+        </table>
+        <div ng-controller="UploadCtrl">
+            <input type="file" ng-file-select="onFileSelect($files)" multiple>
+        </div>
+    </div>
+</div>

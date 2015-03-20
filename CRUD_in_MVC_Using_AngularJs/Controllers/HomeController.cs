@@ -99,11 +99,25 @@ namespace CRUD_in_MVC_Using_AngularJs.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+       
+        public JsonResult GetCountry()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            EmployeeContext db=new EmployeeContext();
+            var getAllCountry = db.country.ToList();
+            return Json(getAllCountry,JsonRequestBehavior.AllowGet);
         }
+        public JsonResult GetStateByCountryId(int CountryId)
+        {
+            EmployeeContext db = new EmployeeContext();
+            var getStateList = db.state.Where(p => p.CountryId == CountryId).Select(x => new {x.StateId,x.StateName }).ToList();
+            return Json(getStateList);
+        }
+        public JsonResult GetCityByStateId(int StateId)
+        {
+            EmployeeContext db = new EmployeeContext();
+            var getCityList = db.city.Where(p => p.StateId == StateId).Select(x => new { x.CityId, x.CityName }).ToList();
+            return Json(getCityList);
+        }
+
     }
 }

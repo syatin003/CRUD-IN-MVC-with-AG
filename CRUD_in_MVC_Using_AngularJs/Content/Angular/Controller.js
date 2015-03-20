@@ -1,4 +1,4 @@
-﻿app.controller("myCntrl", function ($scope, angularService) {
+﻿app.controller("MyCntrl", function ($scope, angularService) {
     $scope.divEmployee = false;
     GetAllEmployee();
     //To Get All Records  
@@ -6,7 +6,7 @@
         var getData = angularService.getEmployees();
         getData.then(function (emp) {
             $scope.employees = emp.data;
-        }, function () {
+        },function () {
             alert('Error in getting records');
         });
     }
@@ -74,7 +74,7 @@
             alert('Error in Deleting Record');
         });
     }
-
+    
     function ClearFields() {
         $scope.employeeId = "";
         $scope.employeeName = "";

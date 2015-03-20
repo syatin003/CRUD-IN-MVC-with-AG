@@ -22,6 +22,10 @@ namespace CRUD_in_MVC_Using_AngularJs
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                            "~/Scripts/angular.js"
+
+                ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
