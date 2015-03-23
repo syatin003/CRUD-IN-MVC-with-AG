@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "CRUD Operation in AngularJS";
+    
 }
 
 <div ng-app="myApp">
@@ -50,7 +51,7 @@
                     <tr>
                         <td><b>Name</b></td>
                         <td>
-                            <input type="text" ng-model="employeeName" name="Name" ng-maxlength=15 required ng-focus />
+                            <input type="text" ng-model="employeeName" name="Name" ng-minlength="4" ng-maxlength=15 required ng-focus />
                             <span style="color:red" ng-show="frmEmployee.Name.$dirty && frmEmployee.Name.$invalid">
                                 <span ng-show="frmEmployee.Name.$error.required">Username is required.</span>
                             </span>
@@ -59,7 +60,7 @@
                     <tr>
                         <td><b>Email</b></td>
                         <td>
-                            <input type="email" ng-model="employeeEmail" name="email" required />
+                            <input type="email" ng-model="employeeEmail" name="email"  required />
                             <span style="color:red" ng-show="frmEmployee.email.$dirty && frmEmployee.email.$invalid">
                                 <span ng-show="frmEmployee.email.$error.required">Email is required.</span>
                                 <span ng-show="frmEmployee.email.$error.email">Invalid email address.</span>@*ng-pattern="[a-zA-Z]"*@
@@ -70,8 +71,6 @@
                         <td><b>Age</b></td>
                         <td>
                             <input type="number" ng-model="employeeAge" name="age" ng-minlength=2 ng-maxlength="3" ng- required />
-
-
                             <span style="color:red" ng-show="frmEmployee.age.$dirty && frmEmployee.age.$invalid">
                                 <span ng-show="frmEmployee.age.$error.required">Age is required.</span>
                             </span>

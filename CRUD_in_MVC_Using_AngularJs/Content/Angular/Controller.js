@@ -1,4 +1,10 @@
 ﻿app.controller("MyCntrl", function ($scope, angularService) {
+    //As an (optional) naming convention the name starts with capital letter and ends with "Controller".
+
+
+                //The last entry in the array is the controller constructor function.
+                //Angular uses this array syntax to define the dependencies so that the DI also works after minifying the code,
+                //which will most probably rename the argument name of the controller constructor function to something shorter like a.
     $scope.divEmployee = false;
     GetAllEmployee();
     //To Get All Records  

@@ -1,12 +1,20 @@
 ﻿<!DOCTYPE html>
 <html ng-app="myApp">
     <head>
-        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+       
+          
+            
+            @Styles.Render("~/Content/css")
+            @Scripts.Render("~/bundles/modernizr")
+       
         @Scripts.Render("~/bundles/angular")
-        <script src="~/Content/Angular/Module.js"></script>
+        @*<script src="~/Content/Angular/Module.js"></script>
         <script src="~/Content/Angular/Controller.js"></script>
-        <script src="~/Content/Angular/Service.js"></script>
+        <script src="~/Content/Angular/Service.js"></script>*@
+
+
         @*<script src="~/Content/Cascading.js"></script>*@
        @*@Styles.Render("~/Content/css")*@
         @*@Scripts.Render("~/bundles/modernizr")*@

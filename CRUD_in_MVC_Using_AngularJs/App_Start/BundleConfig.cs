@@ -23,7 +23,10 @@ namespace CRUD_in_MVC_Using_AngularJs
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                            "~/Scripts/angular.js"
+                            "~/Scripts/angular.js",
+                            "~/Content/Angular/Module.js",
+                            "~/Content/Angular/Controller.js",
+                            "~/Content/Angular/Service.js"
 
                 ));
 

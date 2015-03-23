@@ -17,6 +17,7 @@
     // Update Employee 
     this.updateEmp = function (employee) {
         var response = $http({
+            //$http, a built-in service provided by Angular for accessing a server backend. $http is a wrapper around XMLHttpRequest and JSONP transports.
             method: "post",
             url: "Home/UpdateEmployee",
             data: JSON.stringify(employee),
